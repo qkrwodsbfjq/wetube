@@ -1,0 +1,32 @@
+doctype html 
+html(lang="ko")
+    head 
+        include partials/header.pug
+        include partials/head.pug
+    body
+        header
+            h1=pageTitle
+            nav 
+                ul 
+                    li 
+                        a(href="/") Home
+                    li 
+                        a(href="/search") Search
+                    
+                    if loggedIn
+                        li 
+                        a(href="/videos/upload") Upload Video
+                        li 
+                            a(href="/my-profile") #{loggedInUser.name}의 Profile
+                        li 
+                            a(href="/users/edit") Edit 
+                        li 
+                            a(href="/users/logout") Logout 
+                    else
+                        li 
+                            a(href="/join") Join
+                        li 
+                            a(href="/login") Login
+        main
+            block content
+        include partials/footer.pug
